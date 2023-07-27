@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'dart:math';
 import 'package:text_scroll/text_scroll.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -198,38 +199,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2,
-        type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: ConvexAppBar(
         backgroundColor: Colors.teal,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white.withOpacity(.60),
-        selectedFontSize: 14,
-        unselectedFontSize: 14,
-        onTap: (value) {
-          // Respond to item press.
-        },
+        activeColor: Colors.white,
+        // color: Colors.white,
+        // height: 50,
+        top: -20,
+        // curveSize: 100,
+        // style: TabStyle.fixedCircle,
+        // curve: Curves.easeInBack,
+        initialActiveIndex: 2,
+        // onTap: (int i) => print('click index=$i'),
         items: const [
-          BottomNavigationBarItem(
-            label: 'برترین ها',
-            icon: Icon(Icons.trending_up),
-          ),
-          BottomNavigationBarItem(
-            label: 'علاقه مندی',
-            icon: Icon(Icons.favorite),
-          ),
-          BottomNavigationBarItem(
-            label: 'ویترین',
-            icon: Icon(Icons.home),
-          ),
-          BottomNavigationBarItem(
-            label: 'تنظیمات',
-            icon: Icon(Icons.settings),
-          ),
-          BottomNavigationBarItem(
-            label: 'درباره ما',
-            icon: Icon(Icons.info),
-          ),
+          TabItem(icon: Icons.trending_up, title: 'برترین ها'),
+          TabItem(icon: Icons.favorite, title: 'علاقه مندی'),
+          TabItem(icon: Icons.home, title: 'ویترین'),
+          TabItem(icon: Icons.settings, title: 'تنظیمات'),
+          TabItem(icon: Icons.info, title: 'درباره ما'),
         ],
       ),
       body: SingleChildScrollView(

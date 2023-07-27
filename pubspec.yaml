@@ -35,6 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  getwidget: ^3.1.1
+  text_scroll: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -88,3 +90,33 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: Zar
+      fonts:
+        - asset: fonts/ZarBd.ttf
+
+    - family: QuranTaha
+      fonts:
+        - asset: fonts/QuranTaha.ttf
+
+    - family: Vazir
+      fonts:
+        - asset: fonts/Vazirmatn-Regular.ttf
+  
+    - family: Goldan
+      fonts:
+        - asset: fonts/A.Goldan.ttf
+
+    - family: arvahonafedah
+      fonts:
+        - asset: fonts/arvahonafedah.ttf
+
+    - family: Dima
+      fonts:
+        - asset: fonts/Dima-Shekasteh.ttf
+        
+    - family: IranNastaliq
+      fonts:
+        - asset: fonts/IranNastaliq.ttf
+  

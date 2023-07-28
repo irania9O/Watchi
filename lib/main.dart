@@ -144,7 +144,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         centerTitle: true,
         onChanged: (value) {
-          if (value != '' && value.length > 3) {
+          if (value.length < 3) {
+            return;
+          }
+          if (value != '') {
             setState(() {
               currentWidget = const SearchLoadingPage(matchId: 1);
             });

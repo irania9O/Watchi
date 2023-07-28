@@ -5,6 +5,8 @@ import 'package:getwidget/getwidget.dart';
 import 'dart:math';
 import 'package:text_scroll/text_scroll.dart';
 
+import '../Deatails/Details.dart';
+
 class FavoritePage extends StatefulWidget {
   final int matchId;
   const FavoritePage({Key? key, required this.matchId}) : super(key: key);
@@ -94,100 +96,113 @@ class _FavoritePageState extends State<FavoritePage> {
               ),
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: 15,
+              itemCount: 10,
               itemBuilder: (context, index) {
-                return Stack(
-                  children: [
-                    Container(
-                      height: 200,
-                      margin: const EdgeInsets.all(8.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(5.0),
-                        child: Image.network(
-                          imageList[index % 10],
-                          fit: BoxFit.cover,
-                          width: 1000.0,
-                          height: 200,
-                        ),
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            DetailsPage(url: imageList4[index % 10]),
                       ),
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      left: 0,
-                      child: Container(
+                    );
+                  },
+                  child: Stack(
+                    children: [
+                      Container(
                         margin: const EdgeInsets.all(8.0),
-                        padding: const EdgeInsets.all(2.0),
-                        color: Colors.black.withOpacity(0.5),
-                        child: const TextScroll(
-                          'آخرین تلاش های یک دیوانه',
-                          textDirection: TextDirection.rtl,
-                          fadedBorder: true,
-                          fadeBorderSide: FadeBorderSide.left,
-                          intervalSpaces: 10,
-                          pauseBetween: Duration(seconds: 1),
-                          velocity: Velocity(pixelsPerSecond: Offset(40, 0)),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: Colors.white,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: Hero(
+                            tag: imageList4[index % 10],
+                            child: Image.network(
+                              imageList4[index % 10],
+                              fit: BoxFit.cover,
+                              width: 1000.0,
+                              height: 150,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Positioned(
-                      top: 0,
-                      // right: 0,
-                      left: 0,
-                      // width: 5,
-                      child: Container(
-                        margin: const EdgeInsets.all(8.0),
-                        padding: const EdgeInsets.all(2.0),
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(5.0),
-                            bottomRight: Radius.circular(5.0),
-                          ),
-                          color: Colors.amber.withOpacity(0.7),
-                        ),
-                        child: Text(
-                          // random.nextInt(100).toString(),
-                          (random.nextDouble() * 10.0).toStringAsFixed(1),
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 13,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 0,
-                      right: 0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(5.0),
-                            bottomLeft: Radius.circular(5.0),
-                          ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        child: Container(
+                          margin: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(2.0),
                           color: Colors.black.withOpacity(0.5),
-                        ),
-                        margin: const EdgeInsets.all(8.0),
-                        padding: const EdgeInsets.all(2.0),
-                        // color: Colors.black.withOpacity(0.5),
-                        child: const Text(
-                          'HD',
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: Colors.white,
+                          child: const TextScroll(
+                            'آخرین تلاش های یک دیوانه',
+                            textDirection: TextDirection.rtl,
+                            fadedBorder: true,
+                            fadeBorderSide: FadeBorderSide.left,
+                            intervalSpaces: 10,
+                            pauseBetween: Duration(seconds: 1),
+                            velocity: Velocity(pixelsPerSecond: Offset(40, 0)),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                      Positioned(
+                        top: 0,
+                        // right: 0,
+                        left: 0,
+                        // width: 5,
+                        child: Container(
+                          margin: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(2.0),
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(5.0),
+                              bottomRight: Radius.circular(5.0),
+                            ),
+                            color: Colors.amber.withOpacity(0.7),
+                          ),
+                          child: Text(
+                            // random.nextInt(100).toString(),
+                            (random.nextDouble() * 10.0).toStringAsFixed(1),
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(5.0),
+                              bottomLeft: Radius.circular(5.0),
+                            ),
+                            color: Colors.black.withOpacity(0.5),
+                          ),
+                          margin: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(2.0),
+                          // color: Colors.black.withOpacity(0.5),
+                          child: const Text(
+                            'HD',
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               }),
           const SizedBox(

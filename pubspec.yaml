@@ -39,6 +39,7 @@ dependencies:
   text_scroll: ^0.2.0
   convex_bottom_bar: ^3.2.0
   carousel_slider: ^4.2.1
+  readmore: ^2.2.0
 
 dev_dependencies:
   flutter_test:

@@ -82,7 +82,7 @@ class _FavoritePageState extends State<FavoritePage> {
         children: <Widget>[
           const GFTypography(
             text: 'لیست علاقه مندی ها',
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.favorite),
             type: GFTypographyType.typo3,
             dividerColor: Colors.red,
             dividerAlignment: Alignment.topCenter,

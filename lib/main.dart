@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:watchi/Pages/About.dart';
-import 'package:watchi/Pages/Favorite.dart';
-import 'package:watchi/Pages/Home.dart';
-import 'package:watchi/Pages/Search.dart';
-import 'package:watchi/Pages/Settings.dart';
-import 'package:watchi/Pages/Top.dart';
+import 'Pages/Home/Home.dart';
+import 'Pages/Home/HomeLoading.dart';
+
+import 'Pages/Favorite/Favorite.dart';
+import 'Pages/Favorite/FavoriteLoading.dart';
+
+import 'Pages/About.dart';
+import 'Pages/Search/Search.dart';
+import 'Pages/Search/SearchLoading.dart';
+import 'Pages/Settings.dart';
+import 'Pages/Top/Top.dart';
+import 'Pages/Top/TopLoading.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +56,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final GFBottomSheetController controller = GFBottomSheetController();
-  Widget currentWidget = const HomePage(matchId: 1);
+  Widget currentWidget = const HomeLoadingPage(matchId: 1);
   int _current = 2;
 
   void updatePage(current) {
@@ -58,13 +64,13 @@ class _MyHomePageState extends State<MyHomePage> {
       _current = current;
       switch (current) {
         case 0:
-          currentWidget = const TopPage(matchId: 1);
+          currentWidget = const TopLoadingPage(matchId: 1);
           break;
         case 1:
-          currentWidget = const FavoritePage(matchId: 1);
+          currentWidget = const FavoriteLoadingPage(matchId: 1);
           break;
         case 2:
-          currentWidget = const HomePage(matchId: 1);
+          currentWidget = const HomeLoadingPage(matchId: 1);
           break;
         case 3:
           currentWidget = const SettingsPage(matchId: 1);
@@ -73,6 +79,50 @@ class _MyHomePageState extends State<MyHomePage> {
           currentWidget = const AboutPage(matchId: 1);
           break;
       }
+    });
+
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        switch (current) {
+          case 0:
+            if (currentWidget is TopLoadingPage) {
+              currentWidget = const TopPage(matchId: 1);
+            }
+            break;
+          case 1:
+            if (currentWidget is FavoriteLoadingPage) {
+              currentWidget = const FavoritePage(matchId: 1);
+            }
+            break;
+          case 2:
+            if (currentWidget is HomeLoadingPage) {
+              currentWidget = const HomePage(matchId: 1);
+            }
+            break;
+          case 3:
+            if (currentWidget is SettingsPage) {
+              return;
+              // currentWidget = const SettingsPage(matchId: 1);
+            }
+            break;
+          case 4:
+            if (currentWidget is AboutPage) {
+              return;
+              // currentWidget = const AboutPage(matchId: 1);
+            }
+            break;
+        }
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        currentWidget = const HomePage(matchId: 1);
+      });
     });
   }
 
@@ -94,9 +144,16 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         centerTitle: true,
         onChanged: (value) {
-          if (value != '') {
+          if (value != '' && value.length > 3) {
             setState(() {
-              currentWidget = const SearchPage(matchId: 1);
+              currentWidget = const SearchLoadingPage(matchId: 1);
+            });
+            Future.delayed(const Duration(seconds: 3), () {
+              setState(() {
+                if (currentWidget is SearchLoadingPage) {
+                  currentWidget = const SearchPage(matchId: 1);
+                }
+              });
             });
           } else {
             updatePage(_current);

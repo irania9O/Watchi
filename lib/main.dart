@@ -7,12 +7,14 @@ import 'Pages/Home/HomeLoading.dart';
 import 'Pages/Favorite/Favorite.dart';
 import 'Pages/Favorite/FavoriteLoading.dart';
 
-import 'Pages/About.dart';
 import 'Pages/Search/Search.dart';
 import 'Pages/Search/SearchLoading.dart';
-import 'Pages/Settings.dart';
+
 import 'Pages/Top/Top.dart';
 import 'Pages/Top/TopLoading.dart';
+
+import 'Pages/About.dart';
+import 'Pages/Settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -191,67 +193,108 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       drawer: GFDrawer(
-        child: ListView(
+        child: Container(
           padding: EdgeInsets.zero,
-          children: <Widget>[
-            const GFDrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.teal,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'علی',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              GFDrawerHeader(
+                decoration: const BoxDecoration(
+                  color: Colors.teal,
+                ),
+                currentAccountPicture: GFAvatar(
+                  backgroundImage: Image.network(
+                    "https://i.pravatar.cc/400?img=60",
+                    fit: BoxFit.cover,
+                    width: 1000.0,
+                    height: 300,
+                  ).image,
+                  radius: 80,
+                ),
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'علی کمالی',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  Text(
-                    'کاربر ویژه',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.amber,
+                    Text(
+                      'کاربر ویژه',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.amber,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('برترین ها'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.favorite),
-              title: const Text('علاقه مندی ها'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('ویترین'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('تنظیمات'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.info),
-              title: const Text('درباره ما'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('خروج'),
-              onTap: () {},
-            ),
-          ],
+              Expanded(
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: const Icon(Icons.home),
+                      title: const Text('برترین ها'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.favorite),
+                      title: const Text('علاقه مندی ها'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.home),
+                      title: const Text('ویترین'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.settings),
+                      title: const Text('تنظیمات'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.info),
+                      title: const Text('درباره ما'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.share),
+                      title: const Text('اشتراک گذاری'),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.logout),
+                      title: const Text('خروج'),
+                      onTap: () {},
+                    ),
+                    const Spacer(),
+                    Container(
+                      width: double.infinity,
+                      height: 50,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(2.0),
+                      decoration: const BoxDecoration(
+                        color: Colors.teal,
+                      ),
+                      child: const Text(
+                        'نسخه 1.0.0',
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: ConvexAppBar(

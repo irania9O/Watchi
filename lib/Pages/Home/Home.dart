@@ -6,7 +6,8 @@ import 'dart:math';
 import 'package:text_scroll/text_scroll.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-import '../Deatails/Details.dart';
+import '../Deatails/DetailsActer.dart';
+import '../Deatails/DetailsMovie.dart';
 
 class HomePage extends StatefulWidget {
   final int matchId;
@@ -280,7 +281,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetailsPage(url: url),
+                        builder: (context) => DetailsMoviePage(url: url),
                       ),
                     );
                   },
@@ -438,7 +439,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetailsPage(url: url),
+                        builder: (context) => DetailsMoviePage(url: url),
                       ),
                     );
                   },
@@ -596,7 +597,7 @@ class _HomePageState extends State<HomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetailsPage(url: url),
+                        builder: (context) => DetailsMoviePage(url: url),
                       ),
                     );
                   },
@@ -746,40 +747,51 @@ class _HomePageState extends State<HomePage> {
             ),
             items: imageList4.map(
               (url) {
-                return Container(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GFAvatar(
-                        backgroundImage: NetworkImage(url),
-                        shape: GFAvatarShape.circle,
-                        size: 60,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsActerPage(url: url),
                       ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      const SizedBox(
-                        width: 80,
-                        child: Center(
-                          child: TextScroll(
-                            'نام بازیگر',
-                            textDirection: TextDirection.rtl,
-                            fadedBorder: true,
-                            fadeBorderSide: FadeBorderSide.left,
-                            intervalSpaces: 10,
-                            pauseBetween: Duration(seconds: 1),
-                            velocity: Velocity(pixelsPerSecond: Offset(20, 0)),
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GFAvatar(
+                          backgroundImage: NetworkImage(url),
+                          shape: GFAvatarShape.circle,
+                          size: 60,
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const SizedBox(
+                          width: 80,
+                          child: Center(
+                            child: TextScroll(
+                              'نام بازیگر',
+                              textDirection: TextDirection.rtl,
+                              fadedBorder: true,
+                              fadeBorderSide: FadeBorderSide.left,
+                              intervalSpaces: 10,
+                              pauseBetween: Duration(seconds: 1),
+                              velocity:
+                                  Velocity(pixelsPerSecond: Offset(20, 0)),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               },

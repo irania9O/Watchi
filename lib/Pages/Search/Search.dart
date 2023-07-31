@@ -5,7 +5,7 @@ import 'package:getwidget/getwidget.dart';
 import 'dart:math';
 import 'package:text_scroll/text_scroll.dart';
 
-import '../Deatails/Details.dart';
+import '../Deatails/DetailsMovie.dart';
 
 class SearchPage extends StatefulWidget {
   final int matchId;
@@ -96,7 +96,7 @@ class _SearchPageState extends State<SearchPage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            DetailsPage(url: imageList4[index]),
+                            DetailsMoviePage(url: imageList4[index]),
                       ),
                     );
                   },

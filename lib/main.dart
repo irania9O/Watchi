@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'Pages/Category/CategoryLoading.dart';
 import 'Pages/Home/Home.dart';
 import 'Pages/Home/HomeLoading.dart';
 
@@ -75,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
           currentWidget = const HomeLoadingPage(matchId: 1);
           break;
         case 3:
-          currentWidget = const CategoryPage(matchId: 1);
+          currentWidget = const CategoryLoadingPage(matchId: 1);
           break;
         case 4:
           currentWidget = const AboutPage(matchId: 1);
@@ -102,9 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
             }
             break;
           case 3:
-            if (currentWidget is CategoryPage) {
-              return;
-              // currentWidget = const SettingsPage(matchId: 1);
+            if (currentWidget is CategoryLoadingPage) {
+              currentWidget = const CategoryPage(matchId: 1);
             }
             break;
           case 4:
@@ -200,10 +200,13 @@ class _MyHomePageState extends State<MyHomePage> {
               GFDrawerHeader(
                 decoration: const BoxDecoration(
                   color: Colors.teal,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(155),
+                  ),
                 ),
                 currentAccountPicture: GFAvatar(
                   backgroundImage: Image.network(
-                    "https://i.pravatar.cc/400?img=60",
+                    "https://avatars.githubusercontent.com/u/33866360?v=4",
                     fit: BoxFit.cover,
                     width: 1000.0,
                     height: 300,
@@ -317,7 +320,7 @@ class _MyHomePageState extends State<MyHomePage> {
           TabItem(icon: Icons.trending_up, title: 'برترین ها'),
           TabItem(icon: Icons.favorite, title: 'علاقه مندی'),
           TabItem(icon: Icons.home, title: 'ویترین'),
-          TabItem(icon: Icons.category, title: 'دسته بندی ها'),
+          TabItem(icon: Icons.category, title: 'دسته بندی'),
           TabItem(icon: Icons.info, title: 'درباره ما'),
         ],
       ),

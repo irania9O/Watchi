@@ -5,7 +5,7 @@ import 'package:getwidget/getwidget.dart';
 import 'dart:math';
 import 'package:text_scroll/text_scroll.dart';
 
-import '../Deatails/Details.dart';
+import '../Deatails/DetailsMovie.dart';
 
 class FavoritePage extends StatefulWidget {
   final int matchId;
@@ -104,7 +104,7 @@ class _FavoritePageState extends State<FavoritePage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            DetailsPage(url: imageList4[index % 10]),
+                            DetailsMoviePage(url: imageList4[index % 10]),
                       ),
                     );
                   },

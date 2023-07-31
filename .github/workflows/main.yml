@@ -1,0 +1,26 @@
+name: Watchi
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build_android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v2
+        with:
+          channel: stable
+          version: 3.10.2
+
+      - name: Install dependencies
+        run: flutter pub get
+        
+      - name: Build Android App
+        run: flutter build apk

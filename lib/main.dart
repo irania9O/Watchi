@@ -14,7 +14,7 @@ import 'Pages/Top/Top.dart';
 import 'Pages/Top/TopLoading.dart';
 
 import 'Pages/About.dart';
-import 'Pages/Settings.dart';
+import 'Pages/Category/Category.dart';
 
 void main() {
   runApp(const MyApp());
@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
           currentWidget = const HomeLoadingPage(matchId: 1);
           break;
         case 3:
-          currentWidget = const SettingsPage(matchId: 1);
+          currentWidget = const CategoryPage(matchId: 1);
           break;
         case 4:
           currentWidget = const AboutPage(matchId: 1);
@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
             }
             break;
           case 3:
-            if (currentWidget is SettingsPage) {
+            if (currentWidget is CategoryPage) {
               return;
               // currentWidget = const SettingsPage(matchId: 1);
             }
@@ -252,8 +252,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       onTap: () {},
                     ),
                     ListTile(
-                      leading: const Icon(Icons.settings),
-                      title: const Text('تنظیمات'),
+                      leading: const Icon(Icons.category),
+                      title: const Text('دسته بندی ها'),
                       onTap: () {},
                     ),
                     ListTile(
@@ -317,7 +317,7 @@ class _MyHomePageState extends State<MyHomePage> {
           TabItem(icon: Icons.trending_up, title: 'برترین ها'),
           TabItem(icon: Icons.favorite, title: 'علاقه مندی'),
           TabItem(icon: Icons.home, title: 'ویترین'),
-          TabItem(icon: Icons.settings, title: 'تنظیمات'),
+          TabItem(icon: Icons.category, title: 'دسته بندی ها'),
           TabItem(icon: Icons.info, title: 'درباره ما'),
         ],
       ),

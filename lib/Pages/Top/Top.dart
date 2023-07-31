@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:text_scroll/text_scroll.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../Deatails/DetailsActer.dart';
 import '../Deatails/DetailsMovie.dart';
 
 class TopPage extends StatefulWidget {
@@ -163,7 +164,7 @@ class _TopPageState extends State<TopPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetailsMoviePage(url: url),
+                        builder: (context) => DetailsActerPage(url: url),
                       ),
                     );
                   },

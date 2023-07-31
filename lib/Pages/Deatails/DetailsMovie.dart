@@ -8,15 +8,15 @@ import 'package:getwidget/getwidget.dart';
 import 'package:readmore/readmore.dart';
 import 'package:text_scroll/text_scroll.dart';
 
-class DetailsPage extends StatefulWidget {
+class DetailsMoviePage extends StatefulWidget {
   final String url;
-  const DetailsPage({Key? key, required this.url}) : super(key: key);
+  const DetailsMoviePage({Key? key, required this.url}) : super(key: key);
 
   @override
-  State<DetailsPage> createState() => _DetailsPageState();
+  State<DetailsMoviePage> createState() => _DetailsMoviePageState();
 }
 
-class _DetailsPageState extends State<DetailsPage>
+class _DetailsMoviePageState extends State<DetailsMoviePage>
     with TickerProviderStateMixin {
   late TabController tabController;
   // final ScrollController _scrollController = ScrollController();
@@ -533,7 +533,7 @@ class _DetailsPageState extends State<DetailsPage>
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetailsPage(url: url),
+                            builder: (context) => DetailsMoviePage(url: url),
                           ),
                         );
                       },

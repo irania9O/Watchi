@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
@@ -38,7 +39,16 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
           useMaterial3: true,
         ),
-        home: const MyHomePage(title: 'واتچی'),
+        home: AnimatedSplashScreen(
+          duration: 2000,
+          splashIconSize: 200,
+          splash: 'icons/logo-app.png',
+          nextScreen: const MyHomePage(title: 'واتچی'),
+          splashTransition: SplashTransition.fadeTransition,
+          // pageTransitionType: PageTransitionType.fade,
+          backgroundColor: Colors.teal,
+          centered: true,
+        ),
         builder: (context, child) {
           return Directionality(
             textDirection: TextDirection.rtl,
